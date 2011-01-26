@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<!-- DEFAULT COLORS -->
+<meta name="color:Background" content="#3b627e" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DIY @font-face web service -  GIANT ROBOTS SMASHING INTO OTHER GIANT ROBOTS</title>
+<meta name="description" content="DIY @font-face web service Phil recently designed Developers Developers Developers Developers, an event we&rsquo;re running for Boston-area high school and college students: It looks awesome in part because..." />
+<link rel="shortcut icon" href="http://thoughtbot.com/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" href="feed://feeds.feedburner.com/GiantRobotsSmashingIntoOtherGiantRobots" />
+<link rel="stylesheet" href="http://thoughtbot.com/assets/giantrobots/stylesheets/flutie-merged.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://thoughtbot.com/assets/giantrobots/stylesheets/screen.css?new" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://thoughtbot.com/assets/giantrobots/stylesheets/specials.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://thoughtbot.com/assets/giantrobots/stylesheets/post.css?new" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://thoughtbot.com/assets/giantrobots/stylesheets/slider.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://thoughtbot.com/assets/giantrobots/stylesheets/sunburst.css?new" type="text/css" media="screen" charset="utf-8" />
+</head>
+
+<body>
+	<div id="header">
+		<div class="wrapper">
+			<h1 id="title"><a href="/">GIANT ROBOTS SMASHING INTO OTHER GIANT ROBOTS</a></h1>
+		</div><!-- end .wrapper -->
+	</div><!-- end #header -->
+
+	<div id="body">
+		<div class="wrapper">
+			<div id="content">
+				
+
+				
+				
+				<div class="ralph-separator">
+					<div class="page-back">
+						<div class="page-middle">
+							<div id="2745188601" class="page-top">
+								<h2 class="title"><a href="http://robots.thoughtbot.com/post/2745188601/diy-font-face-web-service">DIY @font-face web service</a></h2>
+								<div class="post-info">
+									<div class="post-info-left">
+										<span>January 14, 2011</span>
+									</div>
+									<div class="post-info-right">
+										<span class="author">dancroak</span>
+									</div>
+								</div><!-- end .post-info -->
+								<div class="post-content clearfix">
+									<p><a href="http://thoughtbot.com/about/#plapier">Phil</a> recently designed <a href="http://developersdevelopersdevelopersdevelopers.org/">Developers Developers Developers Developers</a>, an event we&#8217;re running for Boston-area high school and college students:</p>
+
+<p><img src="http://ui.thoughtbot.com/assets/d8-screenshot.png" width="600"/></p>
+
+<p>It looks awesome in part because of liberal use of <a href="http://www.w3.org/TR/css3-fonts/">@font-face</a>.</p>
+
+<p>These days, it&#8217;s simple to use @font-face. Just use a stylesheet referencing a web service like <a href="http://code.google.com/webfonts">Google Font Directory</a>:</p>
+
+<pre><code>&lt;link href='http://fonts.googleapis.com/css?family=Lobster&amp;subset=latin' rel='stylesheet' type='text/css'&gt; 
+</code></pre>
+
+<p>&#8230; then use the font as part of a normal CSS font stack:</p>
+
+<pre><code>#schedule .event-time {
+  font-family: 'Lobster', arial, sans-serif;
+}
+</code></pre>
+
+<h2>What if the font isn&#8217;t on an @font-face web service?</h2>
+
+<p>There are plenty of commercial @font-face web services, which <a href="http://thoughtbot.com/about/#kylefiedler">Kyle</a> has <a href="http://robots.thoughtbot.com/post/673335945/the-mess-of-web-font-services">covered in detail</a>.</p>
+
+<p>However, there are cases where the font you want to use isn&#8217;t on an existing service. Or, the font you want to use requires explicit permission from the font&#8217;s creator before you can use it.</p>
+
+<p>We ran into this problem on Developers Developers Developers Developers.</p>
+
+<h2>First attempt: serve fonts from the app</h2>
+
+<p>To solve it, we included the font files in our git repository. This worked, but wasn&#8217;t ideal:</p>
+
+<ul><li>Unnecessarily adds large files to the repo.</li>
+<li>No HTTP caching by default, downloading font files on subsequent requests.</li>
+<li>Repetition. Soon after, I wanted to use League Gothic again on another app.</li>
+</ul><h2>Second attempt: serve fonts directly from Amazon S3</h2>
+
+<p>So our next attempt was to upload the @font-face stylesheet and font files to S3 and serve them directly from there like:</p>
+
+<pre><code>&lt;link href='http://our-bucket.s3.amazonaws.com' type='text/css'&gt;
+</code></pre>
+
+<p>At first, this seemed to work well. We could set some HTTP headers to handle caching and everything seemed like it was in the right place:</p>
+
+<ul><li>application code in version control</li>
+<li>assets in an asset host (S3)</li>
+</ul><p>However, Firefox (and probably some versions of IE), balks at this technique because of the <a href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>.</p>
+
+<p>On S3, you&#8217;re not allowed to tweak the <code>Access-Control-Allow-Origin</code> HTTP header to allow Firefox to serve your font from S3. There&#8217;s a <a href="https://forums.aws.amazon.com/message.jspa?messageID=160131">long Amazon thread</a> where S3 customers are asking for this ability.</p>
+
+<p>However, even if you could set the <code>Access-Control-Allow-Origin</code> header on S3, you also want the <code>Content-Type</code>, <code>Cache-Control</code>, and <code>Expires</code> to all also be set in a standard way. It&#8217;s a pain to have to do that manually.</p>
+
+<h2>Solution: serve fonts from a DIY web service</h2>
+
+<p>Our final solution was a small Sinatra app called <a href="https://github.com/thoughtbot/fistface">Fist Face</a>. It is now open source under the MIT License and it solves all the problems we experienced.</p>
+
+<h2>Fist Face</h2>
+
+<p><img alt="Greatest boxer alive" src="http://ui.thoughtbot.com/assets/pacquiao-punch.jpg" width="600"/></p>
+
+<p>It works exactly the same way as Google Font Directory, Typekit, or any other @font-face web service, except that you have full control over it:</p>
+
+<pre><code>&lt;link href='http://your-font-face-service.com/league-gothic.css' rel='stylesheet' type='text/css'&gt;
+</code></pre>
+
+<p>To use Fist Face, this is all you have to write:</p>
+
+<pre><code># Gemfile
+source "http://rubygems.org"
+gem "sinatra",  "~&gt; 1.1"
+gem "fistface", "~&gt; 1.0"
+
+# config.ru
+require 'rubygems'
+require 'bundler'
+Bundler.require
+run FistFace
+</code></pre>
+
+<p>Then deploy it. Follow a few conventions in the <a href="https://github.com/thoughtbot/fistface">README</a> regarding your asset host (ex: S3) and a few minutes later, you&#8217;ll be serving fonts via your own @font-face web service.</p>
+
+<h2>Why would I want to do it myself?</h2>
+
+<p>If you&#8217;ve run into the same issues that we did, have you solved this problem differently?</p>
+
+<p>Among the weaknesses of this approach are:</p>
+
+<ul><li>No CDN. (patches welcome!)</li>
+<li>Up to you to write a decent cross-browser CSS file.</li>
+<li>The font files you use might be old-school (not &#8220;hinted&#8221; for computer screens).</li>
+<li>Requires deeper knowledge of typefaces.</li>
+</ul><p>With an open mind, the last weakness is actually a strength. Typography is pretty interesting. You&#8217;ve got all these <a href="http://www.quora.com/Which-are-some-great-independent-type-foundries">independent type foundries</a> doing beautiful work and some release their fonts for free under permissive licensing.</p>
+
+<p>In that way, hunting great typefaces for your @font-face web service is like building your own art collection. It can differentiate your work.</p>
+
+<p>So, when your friends ask you, &#8220;whoa, what font is that?&#8221;, you can tell them, &#8220;you&#8217;ve probably never heard of it&#8221; &#8230; which I&#8217;ve heard is hip.</p>
+								</div><!-- end .post-content -->
+								<div class="post-info">
+								  
+								</div><!-- end .post-info -->
+                
+							  				<div id="disqus_thread">
+
+        								</div>
+        								
+        									<div id="tumblr_notes">
+        									  <h6>10 notes</h6>
+                            
+<ol class="notes">
+    <!-- START NOTES -->
+                    
+        <li class="
+            note
+            like                            tumblelog_xuan-perze1                                    without_commentary        ">        
+                                                <a href="http://xuan-perze1.tumblr.com/" title="Xuan Perze"><img src="http://assets.tumblr.com/images/default_avatar_16.gif" class="avatar" alt=""/></a>
+                                
+                <span class="action">                
+                                        
+                                            <a href="http://xuan-perze1.tumblr.com/" title="Xuan Perze">xuan-perze1</a> liked this                                    </span>
+                
+                <div class="clear"></div>
+                        
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            like                            tumblelog_markcm                                    without_commentary        ">        
+                                                <a href="http://mark.agileanimal.com/" title="mark"><img src="http://28.media.tumblr.com/avatar_c1ee8cc13170_16.png" class="avatar" alt=""/></a>
+                                
+                <span class="action">                
+                                        
+                                            <a href="http://mark.agileanimal.com/" title="mark">markcm</a> liked this                                    </span>
+                
+                <div class="clear"></div>
+                        
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            like                            tumblelog_ecleel                                    without_commentary        ">        
+                                                <a href="http://ecleel.tumblr.com/" title="Ecleel&#039;s Cocktail"><img src="http://24.media.tumblr.com/avatar_3dc550b0d7e3_16.png" class="avatar" alt=""/></a>
+                                
+                <span class="action">                
+                                        
+                                            <a href="http://ecleel.tumblr.com/" title="Ecleel&#039;s Cocktail">ecleel</a> liked this                                    </span>
+                
+                <div class="clear"></div>
+                        
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            like                            tumblelog_hybernaut                                    without_commentary        ">        
+                                                <a href="http://hybernaut.com/" title="the institute of hybernautics"><img src="http://24.media.tumblr.com/avatar_dbcd50f54693_16.gif" class="avatar" alt=""/></a>
+                                
+                <span class="action">                
+                                        
+                                            <a href="http://hybernaut.com/" title="the institute of hybernautics">hybernaut</a> liked this                                    </span>
+                
+                <div class="clear"></div>
+                        
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            like                            tumblelog_bodi-and-roo                                    without_commentary        ">        
+                                                <a href="http://bodi-and-roo.tumblr.com/" title="Bodi &amp; Roo"><img src="http://30.media.tumblr.com/avatar_d1c79d3a4d8b_16.png" class="avatar" alt=""/></a>
+                                
+                <span class="action">                
+                                        
+                                            <a href="http://bodi-and-roo.tumblr.com/" title="Bodi &amp; Roo">bodi-and-roo</a> liked this                                    </span>
+                
+                <div class="clear"></div>
+                        
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            like                            tumblelog_eliseos                                    without_commentary        ">        
+                                                <a href="http://eliseos.com.ar/" title="Eliseos.net Tumblr"><img src="http://27.media.tumblr.com/avatar_fffed8b8a496_16.png" class="avatar" alt=""/></a>
+                                
+                <span class="action">                
+                                        
+                                            <a href="http://eliseos.com.ar/" title="Eliseos.net Tumblr">eliseos</a> liked this                                    </span>
+                
+                <div class="clear"></div>
+                        
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            reblog                            tumblelog_joeconyers                                    with_commentary        ">        
+                   
+                                                            <a href="http://tumblr.joeconyers.com/" title="Joe Conyers III"><img
+                        src="http://29.media.tumblr.com/avatar_f1c3967c6c14_16.gif" class="avatar" alt="" /></a>
+                                        
+                    <span class="action">
+                                                                                
+                                                                                                                                                                                    <a href="http://tumblr.joeconyers.com/" class="tumblelog" title="Joe Conyers III">joeconyers</a> reblogged this from <a href="http://robots.thoughtbot.com/" class="source_tumblelog" title="GIANT ROBOTS SMASHING INTO OTHER GIANT ROBOTS">thoughtbot-giantrobots</a> and added:                                                                                                                                                                                    </span>
+                    <div class="clear"></div>
+                    
+                                            <blockquote>
+                            <a href="http://tumblr.joeconyers.com/post/2745699429" title="View post">
+                                Pretty Cool (Still going...typekit however)                            </a>
+                        </blockquote>
+                                        
+                                                            
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            like                            tumblelog_eat-sleep-repeat                                    without_commentary        ">        
+                                                <a href="http://eatsleeprepeat.net/" title="EATSLEEPREPEAT.NET"><img src="http://28.media.tumblr.com/avatar_e6622313b6fa_16.png" class="avatar" alt=""/></a>
+                                
+                <span class="action">                
+                                        
+                                            <a href="http://eatsleeprepeat.net/" title="EATSLEEPREPEAT.NET">eat-sleep-repeat</a> liked this                                    </span>
+                
+                <div class="clear"></div>
+                        
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            like                            tumblelog_lapier                                    without_commentary        ">        
+                                                <a href="http://lapier.tumblr.com/" title="Pleasure of recognition and the promise of meaning"><img src="http://30.media.tumblr.com/avatar_bf3ed53b840b_16.png" class="avatar" alt=""/></a>
+                                
+                <span class="action">                
+                                        
+                                            <a href="http://lapier.tumblr.com/" title="Pleasure of recognition and the promise of meaning">lapier</a> liked this                                    </span>
+                
+                <div class="clear"></div>
+                        
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            like                            tumblelog_kevin                                    without_commentary        ">        
+                                                <a href="http://kevin.tumblr.com/" title="kevin.tumblr.com"><img src="http://28.media.tumblr.com/avatar_21369ad76acf_16.png" class="avatar" alt=""/></a>
+                                
+                <span class="action">                
+                                        
+                                            <a href="http://kevin.tumblr.com/" title="kevin.tumblr.com">kevin</a> liked this                                    </span>
+                
+                <div class="clear"></div>
+                        
+                        
+                    </li> 
+                    
+        <li class="
+            note
+            reblog                            tumblelog_thoughtbot-giantrobots                                    without_commentary        ">        
+                   
+                                                            <a href="http://robots.thoughtbot.com/" title="GIANT ROBOTS SMASHING INTO OTHER GIANT ROBOTS"><img
+                        src="http://29.media.tumblr.com/avatar_9ec1aedaca12_16.png" class="avatar" alt="" /></a>
+                                        
+                    <span class="action">
+                                                                                
+                                                            <a href="http://robots.thoughtbot.com/" class="tumblelog" title="GIANT ROBOTS SMASHING INTO OTHER GIANT ROBOTS">thoughtbot-giantrobots</a> posted this                                                                        </span>
+                    <div class="clear"></div>
+                    
+                                        
+                                                            
+                        
+                    </li> 
+        
+        
+    <!-- END NOTES -->
+</ol>
+          								</div>
+        								
+
+                
+							</div><!-- end #page-top -->
+						</div><!-- end #page-middle -->
+					</div><!-- end #page-back -->
+				</div>
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+				<script type="text/javascript">
+				//<![CDATA[
+				(function() {
+					var links = document.getElementsByTagName('a');
+					var query = '?';
+					for(var i = 0; i < links.length; i++) {
+						if(links[i].href.indexOf('#disqus_thread') >= 0) {
+							query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+						}
+					}
+					document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/giantrobots/get_num_replies.js' + query + '"></' + 'script>');
+				})();
+				//]]>
+				</script>
+
+				
+				<script type="text/javascript">var disqus_url = "http://robots.thoughtbot.com/post/2745188601/diy-font-face-web-service"; var disqus_title ="DIY @font-face web service";</script>
+				<div id="disqus_thread"></div><script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/giantrobots/embed.js"></script>
+				<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+				
+
+
+				
+
+				<div id="footer">
+					GIANT ROBOTS SMASHING INTO OTHER GIANT ROBOTS is the blog of <a href="http://thoughtbot.com">thoughtbot</a>, a web design and development agency in Boston. For updates, you can <a href="http://twitter.com/thoughtbot">follow us on Twitter</a> or <a href="http://feeds.feedburner.com/GiantRobotsSmashingIntoOtherGiantRobots">subscribe via RSS</a>.
+				</div><!-- end #footer -->
+			</div><!-- end #content -->
+
+			<div id="sidebar">
+        <p>GIANT ROBOTS is the blog of <a href="http://thoughtbot.com?source=blog_sidebar">thoughtbot</a>, a web design and development agency in Boston.</p>
+        <p>For updates, you can <a href="http://twitter.com/thoughtbot">follow us on Twitter</a> or <a href="http://feeds.feedburner.com/GiantRobotsSmashingIntoOtherGiantRobots">subscribe via RSS</a>.</p>
+		  
+        <!--
+				<form action="/search" method="get" id="search-form">
+					<input type="hidden" name="t" value="thoughtbot-giantrobots" />
+					<input type="hidden" name="scope" value="all_of_tumblr" />
+					<input type="text" id="search" name="q" class="query" value="" />
+				</form>
+				-->
+				
+				<!-- Google -->
+        <form id="search-form" method="GET" action="http://www.google.com/search">
+        <input type="hidden" name="ie" value="UTF-8" />
+        <input type="hidden" name="oe" value="UTF-8" />
+        <input type="hidden" name="domains" value="robots.thoughtbot.com" />
+        <input type="hidden" name="sitesearch" value="robots.thoughtbot.com" />
+        <input type="text" id="search" name="q" value="" class="query" />
+        </form>
+        <!-- Google -->
+
+			  <div class="sidebar-box hoptoad">
+          <a href="http://hoptoadapp.com?source=blog_sidebar">
+            <img src="http://thoughtbot.com/assets/giantrobots/images/sidebar-hoptoad.png" width="30" height="38" alt="Sidebar Hoptoad" style="margin-right: 15px;">
+            <p class="small-title">Hoptoad</p>
+            <p class="main-text">the app error app</p>
+          </a>
+        </div>
+
+        <div class="sidebar-box training">
+          <a href="http://workshops.thoughtbot.com?source=blog_sidebar">
+            <img src="http://thoughtbot.com/assets/giantrobots/images/sidebar-workshops.png" width="35" height="35" alt="Sidebar Training">
+            <p class="small-title">Workshops</p>
+            <p class="main-text">human training</p>
+          </a>
+        </div>
+
+        <div class="sidebar-box open-source">
+          <a href="http://thoughtbot.com/community/?source=blog_sidebar">
+            <img src="http://thoughtbot.com/assets/giantrobots/images/sidebar-community.png" width="35" height="35" alt="Sidebar Training">
+            <p class="small-title">Community</p>
+            <p class="main-text">open source</p>
+          </a>
+        </div>
+
+			</div><!-- end #sidebar -->
+		</div><!-- end .wrapper -->
+	</div><!-- end #body -->
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-1485842-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<script type="text/javascript" src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/3tbRq2.js"></script>
+
+	<script src="http://thoughtbot.com/assets/giantrobots/javascripts/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://thoughtbot.com/assets/giantrobots/javascripts/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://thoughtbot.com/assets/giantrobots/javascripts/fancyzoom.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://thoughtbot.com/assets/giantrobots/javascripts/easySlider1.7.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://thoughtbot.com/assets/giantrobots/javascripts/authors.js" type="text/javascript" charset="utf-8"></script>
+<!-- BEGIN TUMBLR CODE --><iframe src="http://assets.tumblr.com/iframe.html?8&src=http%3A%2F%2Frobots.thoughtbot.com%2Fpost%2F2745188601%2Fdiy-font-face-web-service&amp;pid=2745188601&amp;rk=iWADoLMt&amp;lang=en_US&amp;name=thoughtbot-giantrobots&amp;brag=0" scrolling="no" width="330" height="25" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe><!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]--><script type="text/javascript">_qoptions={qacct:"p-19UtqE8ngoZbM"};</script><script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script><noscript><img src="http://pixel.quantserve.com/pixel/p-19UtqE8ngoZbM.gif" style="display:none; border-width:0px; height:1px; width:1px;" alt=""/></noscript><!-- END TUMBLR CODE --></body>
+</html>
