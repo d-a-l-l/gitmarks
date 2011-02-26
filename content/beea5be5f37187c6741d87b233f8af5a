@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="../jkincludes/articles.css" />
+<meta name="description"
+content="Learn how to create colorful form buttons ultilizing the lastest in HTML 4.0.">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="keywords"
+content="HTML, HTML 4.0, HTML 4, buttons, depressible buttons, JavaScript, DHTML.">
+<title>Understanding the &lt;button&gt; tag of HTML 4.0 </title>
+</head>
+
+<body>
+
+<div id="topsection">
+      <div id="pathlinks"><a href="http://www.javascriptkit.com">Home</a> 
+      <img border="0" src="../jkincludes/arrow.gif" width="15" height="18">
+        <a href="http://www.javascriptkit.com/howto/">Web Design Tutorials</a>
+      <img border="0" src="../jkincludes/arrow.gif" width="15" height="18">
+        <a href="button.shtml">Understanding the &lt;button&gt; tag of HTML 4.0</a>
+      <img border="0" src="../jkincludes/arrow.gif" width="15" height="18">
+        Here</div>
+      <script type="text/javascript" src="http://www.javascriptkit.com/jkincludes/syntaxhighlight/shCore.js"></script>
+<script type="text/javascript" src="http://www.javascriptkit.com/jkincludes/syntaxhighlight/shBrushJScript.js"></script>
+<link href="http://www.javascriptkit.com/jkincludes/syntaxhighlight/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://www.javascriptkit.com/jkincludes/syntaxhighlight/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+
+<form id="jksitesearch" method="get" action="http://www.javascriptkit.com/cgi-bin/search/search.cgi" class="zoom_searchform" style="text-align:right" onSubmit="if (this.zoom_query.value=='' || this.zoom_query.value=='Search JavaScript Kit'){alert('Please enter a search term first!'); return false}">
+<input type="text" name="zoom_query" id="zoom_query" size="20" value="Search JavaScript Kit" class="zoom_searchbox" /> 
+<input type="submit" value="Submit" class="zoom_button" />
+<input name="zoom_per_page" id="zoom_per_page" type="hidden" value="10" />
+<input name="zoom_and" id="zoom_and" type="hidden" value="1" />
+<input type="hidden" name="zoom_sort" value="0" />
+
+<div id="jksitesearch_cat">
+<b>Categories:</b> <input type="checkbox" name="zoom_cat[]" value="-1" id="searchall" style="margin-left: 5px" /><label for="searchall">All</label> <input type="checkbox" name="zoom_cat[]" id="javascriptssearch" value="0" /><label for="javascriptssearch">Free JavaScripts/ Applets</label> <input type="checkbox" name="zoom_cat[]" id="tutorialsearch" value="1" checked="checked" /><label for="tutorialsearch">Tutorials</label> <input type="checkbox" name="zoom_cat[]" id="referencesearch" value="2" /><label for="referencesearch">References</label>
+</div>
+
+</form>
+
+
+	<div id="bannerarea">
+	<script type="text/javascript" src="http://www.javascriptkit.com/adbanner.js"></script>
+	</div>
+</div>
+
+    <h4 align="left">
+    <img border="0" src="../jkincludes/arrow2.gif" width="17" height="17"> 
+    Adding functionality to the button&nbsp;</h4>
+    <p align="left">For the most part, adding functionality to the new &lt;button&gt; 
+    tag of HTML 4.0 means using JavaScript and the JavaScript onClick event 
+    handler. The below illustrates some possible uses for the button:</p>
+    <p align="left">Taking surfers to a url</p>
+    <div align="left">
+      <pre>&lt;button onClick=&quot;window.location='http://www.javascriptkit.com'&quot;&gt;Back home!&lt;/button&gt;</pre>
+</div>
+    <hr size="1">
+    <p align="left">Closing a window:</p>
+    <div align="left">
+      <pre>&lt;button onClick=&quot;window.close()&quot;&gt;Back home!&lt;/button&gt;</pre>
+</div>
+    <hr size="1">
+    <p align="left">Opening a new window with the specified document:</p>
+    <div align="left">
+      <pre>&lt;button onClick=&quot;window.open('mydocument.htm')&quot;&gt;Open second window!&lt;/button&gt;</pre>
+</div>
+<h4 align="left">
+<img border="0" src="../jkincludes/arrow2.gif" width="17" height="17"> Using the 
+button as a form button </h4>
+    <p align="left">Another great use of the new &lt;button&gt; of HTML 4.0&nbsp; is 
+    to use it as a form button. Like the usual form button that existed since 
+    the creation of man kind, the new button supports the type= attribute, which 
+    defines its role in a form. The below lists the possible values for the 
+    type= attribute:</p>
+    <ul>
+      <li><p align="left"><strong style="font-weight: 400">type=&quot;button&quot;&nbsp;&nbsp;&nbsp; 
+      &lt;!--the default type for the button. Does nothing by itself--&gt;</strong></p>
+      </li>
+      <li><p align="left"><strong style="font-weight: 400">type=&quot;reset&quot;&nbsp;&nbsp;&nbsp;&nbsp; 
+      &lt;!--resets the form--&gt;</strong></p>
+      </li>
+      <li><p align="left"><strong style="font-weight: 400">type=&quot;submit&quot;&nbsp;&nbsp; 
+      &lt;!--submits a form--&gt;</strong></p>
+      </li>
+    </ul>
+    <p align="left">The following example creates a button that resets a form 
+    when clicked on:</p>
+    <div align="left">
+      <pre>&lt;form&gt;
+&lt;input type=&quot;text&quot; size=&quot;25&quot; /&gt;&lt;br /&gt;
+&lt;button type=&quot;reset&quot;&gt;&lt;b&gt;reset the form!&lt;/b&gt;&lt;/button&gt;
+&lt;/form&gt;</pre>
+</div>
+    <p align="left">Lets continue to see how to control the appearance of the button, such as 
+    applying a background and controlling the dimensions of it.</p>
+    <ul id="toc">
+      <li><a href="button.shtml">Tutorial Introduction</a></li>
+      <li>Adding functionality to the button tag</li>
+      <li><a href="button2.shtml">Styling the button tag</a></li>
+    </ul>
+      <div align="right" id="nextpage"><a href="button2.shtml">Styling the 
+        button tag 
+      <img border="0" src="../jkincludes/forward.gif" width="15" height="17"></a></div>
+<p>
+ <!--ZOOMSTOP-->
+
+</SPAN> <!--END KONTERA TAG-->
+
+<p align="center" id="footer">Copyright © 1997-2010 <a href="http://www.javascriptkit.com">JavaScript Kit</a>.
+NO PART may be reproduced without author's permission.</p>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-55377-1";
+urchinTracker();
+</script>
+
+
+<!-- Kontera ContentLink™  -->
+<script type="text/javascript">
+var dc_UnitID = 14;
+var dc_PublisherID = 1571;
+var dc_AdLinkColor = 'blue';
+var dc_adprod='ADL';
+</script>
+<script type="text/javascript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<!-- Kontera ContentLink™  -->
+
+
+</p>
+</body>
+</html>
