@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Article - Mark Ashley Bell, Web Designer/Developer</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta http-equiv="content-language" content="en-gb" />
+        <link rel="shortcut icon" href="/content/img/site/favicon.ico" />
+        <link rel="openid.server" href="http://www.myopenid.com/server" />
+        <link rel="openid.delegate" href="http://markb.myopenid.com/" />
+        <link rel="openid2.local_id" href="http://markb.myopenid.com" />
+        <link rel="openid2.provider" href="http://www.myopenid.com/server" />
+        <meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=markb.myopenid.com" />
+        <meta name="description" content="" />
+        <link href="/content/css/screen.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="/content/css/prettify.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <script type="text/javascript" src="/scripts/prettify/prettify.js"></script>
+        
+    </head>
+    <body>
+       <div id="header">
+            <p><a href="/">Mark Ashley Bell, Web Designer/Developer</a></p>
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/articles">Articles</a></li>
+                <li><a href="/jquery">jQuery Plugins</a></li>
+            </ul>
+            <div class="clr">&nbsp;</div>
+       </div>
+        <div id="content">
+    
+             
+
+    <h1>Building a simple Google Chrome extension</h1>
+    
+    <p>Tuesday, 26 January 2010 08:41</p>
+
+    <p>I have a web app running on my home server to keep track of my bookmarks—it's a little like <a href="http://delicious.com/">Delicious</a>, but simpler and with some personal customisations. Currently I save bookmarks to this app via a Javascript bookmarklet: clicking it gets the current page's title and url (and also any selected text, to use as a summary) and sends it to a popup form; submitting that form then saves the bookmark data to the server.</p>
+
+<p>Although this system works well enough, it looks a bit untidy and takes up space in the bookmarks bar. With the advent of <a href="http://www.theregister.co.uk/2010/01/25/google_chrome_4_stable/">Extensions for Chrome</a>, I thought I'd have a go at writing an extension to nicely integrate my custom page bookmarking button into the Chrome browser.</p>
+
+<p><img src="/content/articles/chromeextension/screen.gif" alt="Screen Shot" title="Screen Shot" /></p>
+
+<p>It's clear from the start that Chrome's extension structure is a lot simpler than that of <a href="http://kb.mozillazine.org/Getting_started_with_extension_development">Firefox extensions</a>. Chrome extensions are just a collection of plain HTML and JavaScript files—no odd folder hierarchies or XUL to deal with here. Of course, there are several advantages to Mozilla's approach (ease of internationalisation, UI consistency), but I can't help feeling that building Chrome extensions will be much more accessible to amateur developers; I'm betting that this is exactly what Google was aiming for.</p>
+
+<p>So let's get stuck in! First create a new folder for your extension code—it doesn't matter where for now. My basic Chrome extension consists of just a few files:</p>
+
+<h2>manifest.json</h2>
+
+<p>This is the glue that holds our extension together. It contains the basic meta data about the extension (title, description etc), as well as acting as a pointer to the various files that contain the extension's user interface and JavaScript code. It also defines permissions that specify which browser components and external URLs the extension is allowed to access. The manifest for our extension looks like this:</p>
+
+<pre><code>{
+    "name": "Bookmark",
+    "description": "Adds the current page to my bookmarking system.",
+    "version": "1.0",
+    "background_page": "background.html",
+    "permissions": [
+        "tabs", 
+        "http://*/*", 
+        "https://*/*"
+    ],
+    "browser_action": {
+        "default_title": "Bookmark This Page",
+        "default_icon": "icon.png",
+        "popup": "popup.html"
+    }
+}
+</code></pre>
+
+<p>The <code>background_page</code> property points to an HTML page which contains the logic code for the extension. This HTML is never displayed, it just interacts with the browser and page via JavaScript. The <code>browser_action</code> section defines a button with an icon, which the user will click to open the bookmarking dialog, and the <code>popup</code> property which points to the HTML file containing the dialog form.</p>
+
+<h2>popup.html</h2>
+
+<p>This file contains a basic HTML form with title, url, summary and tag fields (so that we can edit and tag our page bookmark before saving it), and some JavaScript code to do the population and saving of the fields. You can <a href="/content/articles/chromeextension/mab_bookmark_extension.zip">download the complete source here</a>, but for now the important part is the script:</p>
+
+<pre><code>// This callback function is called when the content script has been 
+// injected and returned its results
+function onPageInfo(o) 
+{ 
+    document.getElementById("title").value = o.title; 
+    document.getElementById("url").value = o.url; 
+    document.getElementById("summary").innerText = o.summary; 
+} 
+
+// POST the data to the server using XMLHttpRequest
+function addBookmark(f)
+{
+    var req = new XMLHttpRequest();
+    req.open("POST", "http://mywebappurl/do_add_bookmark/", true);
+
+    var params = "title=" + document.getElementById("title").value + 
+                 "&amp;url=" + document.getElementById("url").value + 
+                 "&amp;summary=" + document.getElementById("summary").value +
+                 "&amp;tags=" + document.getElementById("tags").value;
+
+    req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    req.setRequestHeader("Content-length", params.length);
+    req.setRequestHeader("Connection", "close");
+
+    req.send(params);
+
+    req.onreadystatechange = function() 
+    { 
+        // If the request completed, close the extension popup
+        if (req.readyState == 4)
+            if (req.status == 200) window.close();
+    };
+
+    return false;
+}
+
+// Call the getPageInfo function in the background page, passing in 
+// our onPageInfo function as the callback
+window.onload = function() 
+{ 
+    var bg = chrome.extension.getBackgroundPage();
+    bg.getPageInfo(onPageInfo);
+}
+</code></pre>
+
+<p>This may look a little confusing at first, but it will hopefully make more sense when you see the other code.</p>
+
+<h2>background.html</h2>
+
+<p>Think of this file as the negotiator between the popup dialog and the content/DOM of the currently loaded web page. Though it's an HTML file, it only needs contain a single script tag (as shown below); it will never be displayed anywhere. <code>getPageInfo</code> is the function we called when our popup loaded, and its parameter is the callback function which sets the values of the form fields in <code>popup.html</code>.</p>
+
+<pre><code>&lt;script&gt;
+    // Array to hold callback functions
+    var callbacks = []; 
+
+    // This function is called onload in the popup code
+    function getPageInfo(callback) 
+    { 
+        // Add the callback to the queue
+        callbacks.push(callback); 
+
+        // Injects the content script into the current page 
+        chrome.tabs.executeScript(null, { file: "content_script.js" }); 
+    }; 
+
+    // Perform the callback when a request is received from the content script
+    chrome.extension.onRequest.addListener(function(request) 
+    { 
+        // Get the first callback in the callbacks array
+        // and remove it from the array
+        var callback = callbacks.shift();
+
+        // Call the callback function
+        callback(request); 
+    }); 
+&lt;/script&gt;
+</code></pre>
+
+<p>When <code>getPageInfo</code> is called, it pushes the callback function onto a queue and then injects the content script (below) into the code of the current web page.</p>
+
+<h2>content_script.js</h2>
+
+<p>The content script itself is pretty simple: it just gets the title, url and any selected text from the current page and fires them back the the background page.</p>
+
+<pre><code>// Object to hold information about the current page
+var pageInfo = {
+    "title": document.title,
+    "url": window.location.href,
+    "summary": window.getSelection().toString()
+};
+
+// Send the information back to the extension
+chrome.extension.sendRequest(pageInfo);
+</code></pre>
+
+<p>The background page listener then gets the callback function from the queue (which, if you remember, is the <code>onPageInfo</code> function from the popup page) and calls it, passing in the information about the page so that it can populate the form field values.</p>
+
+<p>Testing and installing the extension is much easier than in Firefox, too. All you need to do is click the Chrome "spanner" icon at top right and select Extensions. Once you're on the Extensions tab, click Developer Mode, browse to your extension's folder and select it. You'll see the icon appear in your browser toolbar; click it while viewing any normal web page and you should see a popup like the one in the screen shot at the beginning of the article, populated with the data from the current page.</p>
+
+<p>You can <a href="/content/articles/chromeextension/mab_bookmark_extension.zip">download all the source code here</a> and modify it to suit your own purposes, or just use it to learn from. </p>
+
+<p>That's it! I'll explain more about Chrome extensions in future posts, but in the meantime, the <a href="http://code.google.com/chrome/extensions/docs.html">Google extension documentation</a> is comprehensive and very useful to learn from. I also picked up a lot of good information from <a href="http://groups.google.com/group/chromium-extensions/browse_thread/thread/eab847f0a32ec25c/1e1881eea2498a10?lnk=gst&amp;q=update%20popup%20from%20backround%20page#1e1881eea2498a10">this thread on the Chromium Extensions Google Group</a>.</p>
+
+    
+        <div id="comments">
+        
+            <h2>Comments</h2>
+
+                <h3>Matthew 25/05/2010 06:17</h3>
+<p>hi, I'm trying to build an extension, using a content script to modify a &lt;div&gt; and add a link, to a php file, which fills out a form and automatically submits. [for avid Craigslisters who want to send an ad to their inbox with one click]. So, I want to use a 
+http:// ... com/craigslist.php?addr=myemail@myhost.com in the url to determine what to put in the email values, which have been set by "localStorage.MAIL = textbox.value", defined in popup.html, or options.html. I can't figure out how to do this, but I hear you have to use "messaging" or "request," to background.html. If you can explain how to do this, I'd appreciated it! :)</p>
+                <h3>vipul 19/08/2010 11:24</h3>
+<p>Hi</p>
+
+<p>Was looking for similar implementation. but I was wondering if using chrome extension one can make call to local server(w/o using gears api) from extesion. Would like to know how did u do this.</p>
+
+<p>vipul
+PS:Download link is not working.</p>
+                <h3>Dan M 26/08/2010 04:37</h3>
+<p>Hey Mark,
+Really great example thanks. Would you be able to have a look at the download link as it's not working at the moment and it'd be great to see the whole thing
+Thanks
+Dan</p>
+                <h3><a href="http://www.nickyeoman.com">Nick Yeoman</a> 01/09/2010 09:14</h3>
+<p>your download link isn't working</p>
+                <h3><a href="http://eclectica.co.uk/">Mark Bell</a> 20/10/2010 08:14</h3>
+<p>Apologies everyone, the download link is now working again.</p>
+
+        </div>
+    
+<form action="/articles/building-a-simple-google-chrome-extension" id="commentform" method="post">        <h2>Add your comment</h2>
+        <p><label for="Comment_AuthorName">Your Name</label>
+        <input id="Comment_AuthorName" name="Comment.AuthorName" type="text" value="" />
+        </p>
+        <p><label for="Comment_Email">Email</label>
+        <input id="Comment_Email" name="Comment.Email" type="text" value="" />
+        </p>
+        <p><label for="Comment_Url">Your web site (optional)</label>
+        <input id="Comment_Url" name="Comment.Url" type="text" value="" /></p>
+        <p><label for="Comment_Body">Comment (you can format comments with <a href="http://daringfireball.net/projects/markdown/syntax" onclick="window.open(this.href); return false;">Markdown</a>)</label> 
+        <textarea cols="20" id="Comment_Body" name="Comment.Body" rows="2">
+</textarea>
+        </p>
+        <p></p>
+        <p><label id="captcha" for="Comment_z7sfd602nlwi">If you have 2 octopi, how many tentacles will they have?</label> &nbsp;
+        <input id="Comment_z7sfd602nlwi" name="Comment.z7sfd602nlwi" size="5" type="text" value="" />
+        </p>
+        <div class="clr">&nbsp;</div>
+        <p><input id="ArticleID" name="ArticleID" type="hidden" value="8" />
+        <input id="commentsubmit" type="submit" value="Submit Comment" /></p>
+</form>
+    <script type="text/javascript" src="/scripts/comment.js"></script>
+    <script type="text/javascript">
+        $('pre>code').addClass('prettyprint');
+        prettyPrint();
+    </script>
+
+
+    
+        </div>
+        <div class="clr">&nbsp;</div>
+        
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+                var pageTracker = _gat._getTracker("UA-10947465-1");
+                pageTracker._trackPageview();
+            } catch (err) { }</script>
+    </body>
+</html>
+
