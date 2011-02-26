@@ -1,0 +1,1196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<!-- Mobify ReRoute JS -->
+<script type="text/javascript"
+src="http://m.readwriteweb.com/mobify/redirect.js"></script>
+<script type="text/javascript">try{_mobify("http://m.readwriteweb.com/");}
+catch(err) {};</script>
+<!-- Meta Tags -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Movable Type Pro 4.35-en" />
+<meta name="author" content="Richard MacManus" />
+<meta name="copyright" content="2003-2009 ReadWriteWeb" />
+<meta property="fb:app_id" content="57345927025" />
+
+
+<meta name="description" content=" Yesterday we all thought Delicious was about to go the way of Ma.gnolia. For those that don't remember, Ma.gnolia was a Delicious competitor that suffered a massive ..." />
+
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.readwriteweb.com/cloud/rss.xml" />
+
+<!-- Icons -->
+
+<link rel="icon" href="/favicon.ico" type="image/ico" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
+
+<!-- Global CSS + JS -->
+
+
+<link rel="stylesheet" href="http://rww.readwriteweb.netdna-cdn.com/mt-static/themes/df/rww_global.css" type="text/css" />
+<link rel="stylesheet" href="http://rww.readwriteweb.netdna-cdn.com/mt-static/themes/df/rww_print.css" type="text/css" media="print"  />
+
+<script type="text/javascript">
+
+function clearCommentLabels()
+{
+    namefield = document.getElementById('comment-author');
+    emailfield = document.getElementById('comment-email');
+    urlfield = document.getElementById('comment-url');
+
+    if(namefield.value != '')
+    {
+        namefield.className = 'no_bg';
+    }
+ 
+    if(emailfield.value != '')
+    {
+        emailfield.className = 'no_bg';
+    }
+  
+    if(urlfield.value != '')
+    {
+        urlfield.className = 'no_bg';
+    }
+}
+
+</script>
+<!-- Small fix for attfc div pushing nav down - JWS 01/15/2010 -->
+<style type="text/css">
+div#atffc { position: absolute; top: 0px; left: 0px; }
+</style>
+<!-- Channel CSS + JS -->
+<link rel="stylesheet" href="/cloud/styles.css" type="text/css" />
+<link rel="stylesheet" href="http://www.readwriteweb.com/mt-static/themes/df/rww_cloud.css?r=1" type="text/css" />
+
+
+
+<script src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load("jquery", "1");
+  google.load("jqueryui", "1");
+</script>
+
+<script type="text/javascript" src="http://www.readwriteweb.com/mt-static/themes/df/scripts/cloud_scripts.js"></script>
+
+<!-- OpenX Single Invocation for RWCloud -->
+<script type='text/javascript' src='http://d.ads.readwriteweb.com/spcjs.php?id=7'></script>
+
+<!-- END Channel CSS and JS -->
+<!-- RSS -->
+<!-- Title -->
+<title>
+
+  3 Ways to Host Your Own Delicious Alternative - ReadWriteCloud
+
+</title>
+
+
+
+
+
+
+
+<link rel="prev" href="http://www.readwriteweb.com/cloud/2010/12/open-source-invisible.php" title="The Cloud Made Open Source &quot;Invisible&quot; This Year" />
+
+
+<link rel="next" href="http://www.readwriteweb.com/cloud/2010/12/westicon-is-a-distributor-of.php" title="How Virtualization Turned an Expense into a New Form of Marketing" />
+
+
+
+
+<script type="text/javascript" src="http://www.readwriteweb.com/cloud/mt.js"></script>
+
+
+
+<link rel="alternate" type="application/atom+xml" href="http://www.readwriteweb.com/cloud/2010/12/host_your_own_delicious_altern.xml" title="Comments">
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var post_title = '3 Ways to Host Your Own Delicious Alternative';
+var post_url = 'http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php';
+var image_src = 'http://www.readwriteweb.com/images/delicious.png';
+var image_href = post_url;
+var story_template_id = '57352487025';
+/* ]]> */
+</script>
+
+</head>
+
+<body onload="individualArchivesOnLoad(commenter_name);clearCommentLabels();">
+<!-- Stats -->
+
+<!-- FM Tracking Pixel -->
+<script type='text/javascript' src='http://static.fmpub.net/site/readwrite'></script>
+<!-- FM Tracking Pixel -->
+
+<!-- MISC -->
+
+
+  <script type="text/javascript">
+var img = new Image();
+if (typeof commenter_id == 'undefined') { var commenter_id = ''; }
+img.src = "http://www.readwriteweb.com/cloud/stats.php?u=" + escape(document.location.href) + "&r=" + escape(document.referrer) + "&a=" + commenter_id + "&b=13&t=entry&i=23703";
+</script>
+
+
+
+<!-- Google Analytics Code -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-421291-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+
+pageTracker._trackEvent('AuthorEntryViews', 'klint', 'http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php',1);
+
+</script>
+<!-- FM GA Tracking Code BEGIN -->
+<script type="text/javascript">
+var secondTracker = _gat._getTracker("UA-10417153-25"); // FM GA account
+secondTracker._setDomainName("none");
+secondTracker._setAllowLinker(true);
+secondTracker._initData();
+secondTracker._trackPageview();
+</script>
+<!-- FM GA Tracking Code END -->
+
+<!-- FM Cloud Impression Tracking Pixel BEGIN -->
+<img src="http://r1.fmpub.net/?k1=VMWare&amp;k2=Intel&amp;k3=ReadWriteCloud&amp;k4=ReadWriteWeb&amp;img=true" width="0" height="0" border="0" style="position:absolute;top:0px;left:0px;" />
+<!-- FM Impression Tracking Pixel END -->
+<!-- Woopra Async Code - JWS 11042010 -->
+<script type="text/javascript">
+
+var woo_actions=[{'type':'pageview','title':document.title,'url':window.location.pathname,'author':'klint','publish_date':'2010-12-17'}];
+
+(function(){
+var wsc=document.createElement('script');
+wsc.src=document.location.protocol+'//static.woopra.com/js/woopra.min.js';
+wsc.async=true;
+var ssc = document.getElementsByTagName('script')[0];
+ssc.parentNode.insertBefore(wsc, ssc);
+})();
+</script>
+<!-- Woopra Async Code End - JWS 11042010 -->
+
+<img src="http://rww.readwriteweb.netdna-cdn.com/mt-static/themes/rww-ideacodes/images/logo.png" id="printlogo" />
+
+
+
+
+<h1><span>ReadWriteCloud</span></h1>
+<div id="header"><div id="header-inner">
+
+
+				<div id="global-dropdown-nav">
+					<ul>
+				<li><a href="http://www.readwriteweb.com">ReadWriteWeb</a></li>
+				<li><a href="#">Channels</a>
+					<ul>
+						<li><a href="http://www.readwriteweb.com/start/">ReadWriteStart</a></li>
+						<li><a href="http://www.readwriteweb.com/biz/">ReadWriteBiz</a></li>
+						<li><a href="http://www.readwriteweb.com/enterprise/" target="_blank">ReadWriteEnterprise</a></li>
+						<li><a href="http://r1.fmpub.net/?r=http%3A%2F%2Fwww.readwriteweb.com%2Fcloud%2F&k4=251&k5={banner_id}">ReadWriteCloud</a></li>
+						<li><a href="http://r1.fmpub.net/?r=http://www.readwriteweb.com/hack&k4=532&k5=%7Bbanner_id%7D">ReadWriteHack</a></li>
+                                                <li><a href="http://www.readwriteweb.com/mobile/">ReadWriteMobile</a></li>
+					</ul>
+				</li>
+
+				<li><a href="#">International</a>
+					<ul>
+						<li><a href="http://readwriteweb.com.br/" target="_blank">ReadWriteBrazil</a></li> 
+                        <li><a href="http://blog.it.sohu.com/readwriteweb/" target="_blank">ReadWriteChina</a></li> 
+                        <li><a href="http://fr.readwriteweb.com/" target="_blank">ReadWriteFrance</a></li> 
+                        <li><a href="http://www.readwriteweb.es/" target="_blank">ReadWriteSpain</a></li> 
+					</ul>
+				</li>
+			</ul>
+  </div>
+
+
+
+
+				<div id="GlobalSearch">
+					<form action="http://www.readwriteweb.com/cloud/fastsearch" name="search_form" method="get">
+					<input id="search" class="textfield" type="text" maxlength="80" value="Search ReadWriteCloud" onblur="if(this.value=='')value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)value=''" name="search"/>
+					<input class="search_button_search" type="image" src="http://www.readwriteweb.com/mt-static/themes/df/images/header/search-button.png"/>
+					</form>
+				</div>
+				<div class="clear"><!--comment--></div>
+					<div class="logo">
+					<a href="http://www.readwriteweb.com/cloud/" title="ReadWriteCloud"><span class="notext">ReadWriteCloud</span></a>
+
+				</div>
+				
+<div class="sponsorad">
+
+				</div>
+
+<div class="clear"><!--comment--></div>
+				<div id="Navigation">
+					<ul>
+						<li>
+							<a href="http://www.readwriteweb.com/cloud/?utm_source=readwritecloud&utm_medium=channel_navigation&utm_campaign=rwcloudhomepage&utm_content=All%20Posts" title="View all posts" class="current">All Posts</a>
+
+						</li>
+<li>
+							<a href="http://www.readwriteweb.com/cloud/vmworld/?utm_source=readwritecloud&utm_medium=channel_navigation&utm_campaign=rwcloudvmworld&utm_content=VMworld" title="ReadWriteCloud coverage of VMworld 2010" class="link">VMworld</a>
+						</li>
+						<li>
+							<a href="http://www.readwriteweb.com/cloud/archives.php?utm_source=readwritecloud&utm_medium=channel_navigation&utm_campaign=rwcloudarchives&utm_content=Archives" title="View the Archives" class="link">Archives</a>
+						</li>
+                                                <li>
+							<a href="http://www.readwriteweb.com/cloud/case-studies/?utm_source=readwritecloud&utm_medium=channel_navigation&utm_campaign=casestudies&utm_content=Case%20Studies" title="Case studies on virtualization." class="link">Case Studies</a>
+						</li>
+<li>
+							<a href="http://www.readwriteweb.com/cloud/white-papers/?utm_source=readwritecloud&utm_medium=channel_navigation&utm_campaign=whitepapers&utm_content=White%20Papers" title="White Papers" class="link">White Papers</a>
+						</li>
+					</ul>
+				</div>
+				<div id="Subscribe">
+					<a href="http://www.readwriteweb.com/cloud/rss.xml" class="RSS" onClick="javascript:secondTracker._trackPageview('/nav/RWCRSS')">RSS</a>
+					<a href="http://twitter.com/rww" class="Twitter" onClick="javascript:secondTracker._trackPageview('/nav/RWWTwitter')">Twitter</a>
+
+					<a href="http://www.facebook.com/ReadWriteWeb" class="FB" onClick="javascript:secondTracker._trackPageview('/nav/RWWFacebookPage')">Facebook</a>
+					<form action="http://readwriteweb.us2.list-manage1.com/subscribe?u=f5a0df2d9082c86e808468c10&id=0557321127" method="post" target="popupwindow" onsubmit="window.open('http://readwriteweb.us2.list-manage1.com/subscribe?u=f5a0df2d9082c86e808468c10&id=0557321127', 'popupwindow', 'scrollbars=yes,width=620,height=550');return true">
+						<input id="email" class="textfield" type="text" maxlength="80" name="MERGE0" onblur="if(this.value=='')value=this.defaultValue;" onfocus="if(this.value==this.defaultValue)value=''" value="Your email address"/>
+						<input class="search_button" type="image" src="http://www.readwriteweb.com/mt-static/themes/df/images/header/go-button.png" onClick="javascript:secondTracker._trackPageview('/nav/RWCEmailSubscription')"/>
+					</form>
+				</div>
+
+
+</div></div>
+
+
+<div id="wrapper">
+
+<div id="content-column-left">
+<div id="left_column_style">
+
+<div id="entry-23703" class="entry-asset asset">
+<div class="asset-header">
+
+<div id="metadata_digg_box">
+<div id="metadata_digg_left">
+
+<h1 class="titlelink"><a href="http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php" title="Permanent link to 3 Ways to Host Your Own Delicious Alternative">3 Ways to Host Your Own Delicious Alternative</a></h1>
+<div id="submeta" class="author-date-comments">
+
+
+        By <a href="http://www.readwriteweb.com/cloud/author/klint-finley.php">Klint Finley</a> / December 17, 2010  1:30 PM 
+
+       / <a href="http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php#disqus_thread">20 Comments</a>
+
+</div>
+<div class="share-buttons"><div class="share-tweet-mini"><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rww.to/f1RTSX" data-count="horizontal" data-via="RWW" data-text="3 Ways to Host Your Own Delicious Alternative by @klintron" data-related="klintron" data-counturl="http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php">Tweet</a></div><div style="float: left" class="addthis_toolbox addthis_default_style"><a class="addthis_button_hackernews">Hacker News</a></div><div style="float: left; padding-right: 10px" class="reddit"><script type="text/javascript">
+// Reddit button configuration
+reddit_url='http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php';
+reddit_title='3 Ways to Host Your Own Delicious Alternative';
+</script>
+<script type="text/javascript" src="http://reddit.com/static/button/button1.js"></script></div><div class="share-stumble-mini"><script src="http://www.stumbleupon.com/hostedbadge.php?s=1&r=http%3A%2F%2Fwww.readwriteweb.com%2Fcloud%2F2010%2F12%2Fhost-your-own-delicious-altern.php"></script></div><div class="share-addthis-mini"><a class="addthis_counter addthis_pill_style" addthis:url="http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php"></a></div><br style="clear: both"/></div>
+</div>
+
+</div>
+
+</div>
+<p style="font-style: italic">This post is part of our ReadWriteCloud channel, which is dedicated to covering virtualization and cloud computing. The channel is sponsored by <a href="http://www.vmware.com/go/intel/?utm_source=readwritecloud&utm_medium=Sponsored_blurb_link&utm_campaign=inpost">Intel and VMware</a>. 
+<div class="asset-content">
+
+
+<div class="asset-body">
+<p><img src="http://rww.readwriteweb.netdna-cdn.com/images/delicious.png"> Yesterday we all thought <a href="http://delicious.com">Delicious</a> was about to go the way of <a href="http://gnolia.com/">Ma.gnolia</a>. For those that don't remember, Ma.gnolia was a Delicious competitor that suffered a <a href="blogs.techrepublic.com.com/tr-out-loud/?p=805">massive data loss</a> and eventually shut down entirely. It now looks like <a href="http://www.readwriteweb.com/archives/now_yahoo_says_delicious_will_live_onsomewhere_els.php">Delicious will live on</a>, but it remains uncertain where or in what form.</p>
+
+<p>The uncertainty about Delicious's future has lead to many looking for alternatives, and several blogs have posted lists of various hosted alternatives like <a href="http://diigo.com">Diigo</a> and <a href="http://pinboard.in/">Pinboard</a>. But there's another alternative: host your own Web-based bookmarking service. Here are three open source projects that you can install on your own server or cloud provider. Keep local backups, and you don't have ever have to worry about a service being shutdown again. Please feel free to list other self-hosted alternatives in the comments.</p>
+</div>
+
+
+
+
+
+<div id="more" class="asset-more">
+
+
+
+
+
+
+
+  <h2>Scuttle</h2>
+
+<p><img alt="Scuttle screenshot" src="http://rww.readwriteweb.netdna-cdn.com/cloud/images/scuttle_screenshot_1210.png" width="640" height="353" /></p>
+
+<p><a href="http://sourceforge.net/projects/scuttle/">Scuttle</a> is an open source PHP and MySQL based Delicious-clone that's been in development since 2005. It supports multiple users, so you could host a copy of it and let all your friends or co-workers use it.</p>
+
+<h2>Selficious</h2>
+
+<p><img alt="Selflicious" src="http://rww.readwriteweb.netdna-cdn.com/cloud/images/selficious_screenshot_1210.jpg" width="568" height="524" class="mt-image-none" style="" /></p>
+
+<p><a href="https://github.com/initpy/selficious">Selficious</a> is a new Python-based personal web bookmarking application very similar to Delicious. It's designed for just one person to stash their bookmarks on a web server.</p>
+
+<h2>Scrumptious</h2>
+
+<p><img alt="Scrumptious" src="http://rww.readwriteweb.netdna-cdn.com/cloud/images/scrumptious_screenshot_1210.png" width="500" height="360" /></p>
+
+<p><a href="http://blog.fupps.com/2010/05/25/truly-scrumptious-bookmarks-in-couchdb/">Scrumptious</a> is a CouchDB based Delicious-clone by <a href="http://mens.de/">Jan-Piet Mens</a>. It supports importing Delicious bookmarks.<strike> It doesn't have the sort of radical decentralization of <a href="http://www.readwriteweb.com/hack/2010/12/j-chris-anderson-interview.php">Twebz</a></strike> (<strong>Update:</strong> that's actually an inherent feature of CouchDB's replication) - , but it's a start. You can grab the code from <a href="https://github.com/jpmens/scrumptious">GitHub</a>.</p>
+
+<h2>Bonus: Ma.gnolia?</h2>
+
+<p><strong>Update:</strong> Here's the <a href="https://github.com/gnolia/magnolia">gnolia / magnolia</a> code on Github. Thanks Adam!</p>
+
+<p>Ill-fated Delicious competitor Ma.gnolia <a href="http://www.readwriteweb.com/archives/magnolia_goes_open_source.php">released its code</a> back in 2008. The company closed its doors this year and now its open source home <a href="http://ma.gnolia.org/">ma.gnolia.org</a> seems to be down. Is the code still floating around anywhere?</p>
+
+
+  
+
+
+
+
+
+
+  <div class="related-entries">
+      <h3>See Also</h3>
+      <ul class="bullet">
+         
+      
+         
+         
+            <li class="widget-list-item"><a href="http://www.readwriteweb.com/cloud/2011/02/rolling-blackouts-in-texas-may.php" onclick="pageTracker._trackEvent('In-Post Related Entries','Click','Rolling Blackouts in Texas May Cause Trouble for the Cloud');">Rolling Blackouts in Texas May Cause Trouble for the Cloud</a></li>
+         
+      
+         
+         
+            <li class="widget-list-item"><a href="http://www.readwriteweb.com/cloud/2010/12/amazon-web-services-wikileaks.php" onclick="pageTracker._trackEvent('In-Post Related Entries','Click','Amazon Web Services, WikiLeaks and the Elephant in the Room');">Amazon Web Services, WikiLeaks and the Elephant in the Room</a></li>
+         
+      
+         
+         
+            <li class="widget-list-item"><a href="http://www.readwriteweb.com/cloud/2010/12/cloud-startups-to-watch-in-201.php" onclick="pageTracker._trackEvent('In-Post Related Entries','Click','5 Cloud Startups to Watch in 2011 #1: ClearDB');">5 Cloud Startups to Watch in 2011 #1: ClearDB</a></li>
+         
+      
+         
+         
+      
+         
+         
+            <li class="widget-list-item"><a href="http://www.readwriteweb.com/cloud/2010/12/open-source-invisible.php" onclick="pageTracker._trackEvent('In-Post Related Entries','Click','The Cloud Made Open Source "Invisible" This Year');">The Cloud Made Open Source "Invisible" This Year</a></li>
+         
+      
+   
+      </ul>
+   </div>
+   
+
+
+
+
+<div id="like-and-retweet"><div class="tweetmeme-endpost"><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rww.to/f1RTSX" data-count="vertical" data-via="RWW" data-text="3 Ways to Host Your Own Delicious Alternative by @klintron" data-related="klintron" data-counturl="http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php">Tweet</a></div>
+<div class="facebook-like"><fb:like action="recommend" href="http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php" font="arial"></fb:like></div><br style="clear: both" /></div>
+
+
+
+</div>
+
+
+</div>
+<div class="asset-footer">
+
+
+       <div class="nextprevious" >
+
+       		 <a href="http://www.readwriteweb.com/cloud/2010/12/open-source-invisible.php"><span>&laquo; Prior Post</span></a>
+       		 <a href="http://www.readwriteweb.com/cloud/2010/12/westicon-is-a-distributor-of.php"><span>Next Post &raquo;</span></a>
+
+       </div>
+
+
+
+Posted in <span class="delimiter">
+    <ul class="entry-categories-list">
+        <a href="http://www.readwriteweb.com/cloud/saas/">SaaS</a>
+    </ul>
+</span>
+
+
+
+
+
+and tagged with <span class="delimiter">
+    <ul class="entry-tags-list">
+        <a href="http://www.readwriteweb.com/cloud/tag/delicious" rel="tag">delicious</a>, <a href="http://www.readwriteweb.com/cloud/tag/hosting" rel="tag">hosting</a>, <a href="http://www.readwriteweb.com/cloud/tag/open+source" rel="tag">open source</a>, <a href="http://www.readwriteweb.com/cloud/tag/social" rel="tag">social</a>
+    </ul>
+</span>
+
+
+
+
+
+<ul id="pf_toolbar">
+
+    <li><a href="#comments-open" class="comment">Comment</a></li>
+
+    <li><a href="http://www.readwriteweb.com/cloud/rss.xml" class="subscribe">Subscribe</a></li>   
+    <li><a href="http://www.addthis.com/bookmark.php" 
+        style="text-decoration:none;" onclick="return addthis_open(this, 'email', 'http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php', '3 Ways to Host Your Own Delicious Alternative');" class="email">
+        Email This</a></li>
+<li><a href="javascript:window.print()" class="print">Print This</a></li>
+
+    <li><!-- AddThis Button BEGIN -->
+<style type="text/css">
+.at300bs
+{
+ display: inline !important; padding-left: 20px;
+}
+
+.at300b
+{
+ padding-left: 5px !important;
+}
+</style>
+<script type="text/javascript">
+var addthis_share = {
+ templates:  {
+                   twitter: '{{title}} {{url}} #rwc',
+               }
+}
+
+var addthis_config = {
+data_ga_tracker:secondTracker,
+services_compact: 'facebook,digg,twitter,reddit,delicious,hackernews,stumbleupon,slashdot,googlebuzz,more'
+}
+</script>
+<a class="addthis_button_twitter">Tweet This</a>
+</li>												
+    <li>
+<a href="http://www.addthis.com/bookmark.php" class="addthis_button" style="text-decoration:none;">
+<img src="http://s7.addthis.com/static/btn/sm-plus.gif" width="16" height="16" border="0" alt="Share" />Share</a>
+<!-- AddThis Button END --></li>
+</ul>
+
+
+</div>
+
+
+
+
+
+                <link rel="stylesheet" href="http://disqus.com/stylesheets/readwritewebdotcom/disqus.css?v=2.0" type="text/css" media="screen" />
+                
+<div id="disqus_thread">
+	<div id="dsq-content">
+		<ul id="dsq-comments">
+			<div id="comment-116160811"></div>
+
+			<li id="dsq-comment-116160811">
+				<div id="dsq-comment-header-116160811" class="dsq-comment-header">
+					<cite id="dsq-cite-116160811">
+						<span id="dsq-author-user-116160811">Jan_d73</span>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-116160811" class="dsq-comment-body">
+					<div id="dsq-comment-message-116160811" class="dsq-comment-message">For the social aspect of Bookmark Sharing I hope <a href="http://delicious.com" rel="nofollow">delicious.com</a> stays around for a long Time. After that I&#39;ll see where most people are going to and go there too. As for the fear of not beeing able to access my own old bookmarks i took the opportunity for a little php-practice and wrote a script that searches through my delicious backup file. Your welcome to use it:<br><a href="http://jandahlhaus.de/bookmarks" rel="nofollow">http://jandahlhaus.de/bookmark...</a>/ (german)<br><br>The Idea of a decentralized shared bookmarking community with Couch-DB or something similar sounds pretty cool, though.</div>
+				</div>
+			</li>
+			<div id="comment-116150060"></div>
+
+			<li id="dsq-comment-116150060">
+				<div id="dsq-comment-header-116150060" class="dsq-comment-header">
+					<cite id="dsq-cite-116150060">
+						<a id="dsq-author-user-116150060" href="http://fps.myopenid.com/" target="_blank" rel="nofollow">Your Name</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-116150060" class="dsq-comment-body">
+					<div id="dsq-comment-message-116150060" class="dsq-comment-message"><a href="http://www.semanlink.net" rel="nofollow">http://www.semanlink.net</a></div>
+				</div>
+			</li>
+			<div id="comment-114433721"></div>
+
+			<li id="dsq-comment-114433721">
+				<div id="dsq-comment-header-114433721" class="dsq-comment-header">
+					<cite id="dsq-cite-114433721">
+						<a id="dsq-author-user-114433721" href="http://www.mobilecubix.com" target="_blank" rel="nofollow">iPhone Application</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-114433721" class="dsq-comment-body">
+					<div id="dsq-comment-message-114433721" class="dsq-comment-message">Oh shit what i am doing now</div>
+				</div>
+			</li>
+			<div id="comment-114143706"></div>
+
+			<li id="dsq-comment-114143706">
+				<div id="dsq-comment-header-114143706" class="dsq-comment-header">
+					<cite id="dsq-cite-114143706">
+						<a id="dsq-author-user-114143706" href="http://brianaford.info" target="_blank" rel="nofollow">Briana Ford</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-114143706" class="dsq-comment-body">
+					<div id="dsq-comment-message-114143706" class="dsq-comment-message">I&#39;m fine going with diigo, but thanks Chris H for referring Your Version. Definitely going to give it a try</div>
+				</div>
+			</li>
+			<div id="comment-114116113"></div>
+
+			<li id="dsq-comment-114116113">
+				<div id="dsq-comment-header-114116113" class="dsq-comment-header">
+					<cite id="dsq-cite-114116113">
+						<a id="dsq-author-user-114116113" href="http://twitter.com/wastingtimegame" target="_blank" rel="nofollow">Wasting Time Games</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-114116113" class="dsq-comment-body">
+					<div id="dsq-comment-message-114116113" class="dsq-comment-message">I put up a scuttle instance and it works well for me. If anybody wants to use it you can go to  <a href="http://wastingtimegames.com/bookmarks" rel="nofollow">http://wastingtimegames.com/bo...</a>/ and use it.</div>
+				</div>
+			</li>
+			<div id="comment-114425035"></div>
+
+			<li id="dsq-comment-114425035">
+				<div id="dsq-comment-header-114425035" class="dsq-comment-header">
+					<cite id="dsq-cite-114425035">
+						<a id="dsq-author-user-114425035" href="http://twitter.com/wastingtimegame" target="_blank" rel="nofollow">Wasting Time Games</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-114425035" class="dsq-comment-body">
+					<div id="dsq-comment-message-114425035" class="dsq-comment-message">I just heard that <a href="http://del.icio.us" rel="nofollow">del.icio.us</a> may be sold instead of shutting down. However, since the future of the service is still unknown I have exported all of my <a href="http://del.icio.us" rel="nofollow">del.icio.us</a> bookmarks and put them in <a href="http://ocell.us" rel="nofollow">http://ocell.us</a> as the service promises to be around for a very long time</div>
+				</div>
+			</li>
+			<div id="comment-114043762"></div>
+
+			<li id="dsq-comment-114043762">
+				<div id="dsq-comment-header-114043762" class="dsq-comment-header">
+					<cite id="dsq-cite-114043762">
+						<a id="dsq-author-user-114043762" href="http://twitter.com/ericblue" target="_blank" rel="nofollow">Eric Blue</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-114043762" class="dsq-comment-body">
+					<div id="dsq-comment-message-114043762" class="dsq-comment-message">What about gnizer (<a href="http://code.google.com/p/gnizr" rel="nofollow">http://code.google.com/p/gnizr</a>/)?  The code doesn&#39;t appear to have been updated for some time, but the features seem solid.</div>
+				</div>
+			</li>
+			<div id="comment-113898681"></div>
+
+			<li id="dsq-comment-113898681">
+				<div id="dsq-comment-header-113898681" class="dsq-comment-header">
+					<cite id="dsq-cite-113898681">
+						<span id="dsq-author-user-113898681">stickyc</span>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113898681" class="dsq-comment-body">
+					<div id="dsq-comment-message-113898681" class="dsq-comment-message">The real value in Delicious was the large community and dead-simple feature-set ("Save and search shared bookmarks with tags"). Neither of the two popular alternatives mentioned so far (Diigo, pinboard) have enough critical mass to  provide real crowd-sourced value and the limitations of both will probably prevent them from reaching that point - Diigo&#39;s feature set takes more than a paragraph to describe and Pinboard has too high a fiscal/effort barrier to entry for the majority of ex-Delicious users.<br><br>There&#39;s also a dozen or so also-rans (most established in the last 24 hours) that will need some sort of bootstrapping to rise above the noise.<br><br>Rolling your own is great for just bookmarking, but with no crowd-sourcing, what&#39;s the difference between that and just using your browser&#39;s built-in bookmark manager?<br><br>I&#39;m not convinced Yahoo! had originally planned to sell Delicious, but I&#39;d love to see someone with a solid background (IE - uptime record) pick up the service. At this point, even if Yahoo! backed down and decided to keep Delicious, the damage has been done and the door&#39;s wide open for a competitor to swoop in...<br><br>I&#39;m also hoping some foreward-thinking entrepreneur realizes there&#39;s a lot of panicked Flickr folks out there and is ready when that exodus comes (and no, Photobucket and Picasa aren&#39;t there yet).</div>
+				</div>
+			</li>
+			<div id="comment-116154675"></div>
+
+			<li id="dsq-comment-116154675">
+				<div id="dsq-comment-header-116154675" class="dsq-comment-header">
+					<cite id="dsq-cite-116154675">
+						<a id="dsq-author-user-116154675" href="http://www.facebook.com/people/Thomas-Hebert/100000321797661" target="_blank" rel="nofollow">Thomas Hebert</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-116154675" class="dsq-comment-body">
+					<div id="dsq-comment-message-116154675" class="dsq-comment-message">Exactly, it&#39;s not a simple question of &#39;How do I backup all my links?&#39;, or even &#39;Where are the places we can go to continue to get social Bookmarking?&#39; The biggest asset of Delicious is that we&#39;re all feeding into the same data set and all benefiting from the results - If Delicious users migrate haphazardly to 4 other services out there we will have lost much of the critical mass that makes Delicious so powerful - It&#39;s the whole John Donne thing, currently we&#39;re all &#39;part of the main&#39; - we won&#39;t be when we&#39;re Balkanized.</div>
+				</div>
+			</li>
+			<div id="comment-113877740"></div>
+
+			<li id="dsq-comment-113877740">
+				<div id="dsq-comment-header-113877740" class="dsq-comment-header">
+					<cite id="dsq-cite-113877740">
+						<a id="dsq-author-user-113877740" href="http://mekk.waw.pl/mk/index" target="_blank" rel="nofollow">Mekk</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113877740" class="dsq-comment-body">
+					<div id="dsq-comment-message-113877740" class="dsq-comment-message">The important part of delicious was - at least for me - the "crowdsoucing intelligence", by which I mean the fact that I only rarely had to invent tags for pages bookmarked, as the service was able to offer me good suggestions. No self-hosted service can support this (and online competitors may find it difficult).</div>
+				</div>
+			</li>
+			<div id="comment-113838741"></div>
+
+			<li id="dsq-comment-113838741">
+				<div id="dsq-comment-header-113838741" class="dsq-comment-header">
+					<cite id="dsq-cite-113838741">
+						<span id="dsq-author-user-113838741">Dipan Patel</span>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113838741" class="dsq-comment-body">
+					<div id="dsq-comment-message-113838741" class="dsq-comment-message">The real problem is finding a place that has a continuous stream of useful "Recent" and "Popular" websites that are neatly organized and tagged by the community.  Any worthwhile alternatives?</div>
+				</div>
+			</li>
+			<div id="comment-113842932"></div>
+
+			<li id="dsq-comment-113842932">
+				<div id="dsq-comment-header-113842932" class="dsq-comment-header">
+					<cite id="dsq-cite-113842932">
+						<a id="dsq-author-user-113842932" href="http://symbalooedu.com" target="_blank" rel="nofollow">Kimmie Chann Fortelny</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113842932" class="dsq-comment-body">
+					<div id="dsq-comment-message-113842932" class="dsq-comment-message">I definitely agree with you Dipan. I would suggest checking out <a href="http://symbaloo.com" rel="nofollow">http://symbaloo.com</a> where users gather their favorite bookmarks and organize them by subject in what is called a "webmix". These webmixes can be tagged, shared and published. The published webmixes are easily found in the gallery and are also indexed in Google. To get more information on why Symbaloo is a good alternative check out this blog post: <a href="http://bit.ly/i2ecgJ" rel="nofollow">http://bit.ly/i2ecgJ</a></div>
+				</div>
+			</li>
+			<div id="comment-113828783"></div>
+
+			<li id="dsq-comment-113828783">
+				<div id="dsq-comment-header-113828783" class="dsq-comment-header">
+					<cite id="dsq-cite-113828783">
+						<a id="dsq-author-user-113828783" href="http://adamgibbins.com" target="_blank" rel="nofollow">Adam Gibbins</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113828783" class="dsq-comment-body">
+					<div id="dsq-comment-message-113828783" class="dsq-comment-message"><a href="https://github.com/gnolia/magnolia" rel="nofollow">https://github.com/gnolia/magn...</a>/ - Ma.gnolia code</div>
+				</div>
+			</li>
+			<div id="comment-113807245"></div>
+
+			<li id="dsq-comment-113807245">
+				<div id="dsq-comment-header-113807245" class="dsq-comment-header">
+					<cite id="dsq-cite-113807245">
+						<a id="dsq-author-user-113807245" href="http://twitter.com/rtchris" target="_blank" rel="nofollow">Chris H.</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113807245" class="dsq-comment-body">
+					<div id="dsq-comment-message-113807245" class="dsq-comment-message">Yes, you can try to host your own Delicious alternative.  What I recommend everyone try is YourVersion <a href="http://YourVersion.com" rel="nofollow">http://YourVersion.com</a>. With YourVersion you can import both your Delicious bookmarks and tags (it also maintains your public and private bookmarks the way you want). YourVersion is a real-time discovery engine that lets you discover, bookmark and share tailored web content (news, blogs, webpages, tweets and videos) by your specific interests. In addition to the website, we have free mobile apps (iPad, iPhone and Android) and browser tools for all browsers.</div>
+				</div>
+			</li>
+			<div id="comment-113798612"></div>
+
+			<li id="dsq-comment-113798612">
+				<div id="dsq-comment-header-113798612" class="dsq-comment-header">
+					<cite id="dsq-cite-113798612">
+						<a id="dsq-author-user-113798612" href="http://big.appspot.com" target="_blank" rel="nofollow">Yuuta</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113798612" class="dsq-comment-body">
+					<div id="dsq-comment-message-113798612" class="dsq-comment-message">Hi, Selficious author here, <br>Thank you Klint for including my humble app here. I actually crafted it very quickly but since the code is opensource, I invite everyone who like python and tornado to try it out. This very first version was a kind of an "emergency" solution, but I have some cool ideas in mind for it like social aspects and real time bookmarks sharing... Your ideas and patches are more than welcome! :)</div>
+				</div>
+			</li>
+			<div id="comment-113794670"></div>
+
+			<li id="dsq-comment-113794670">
+				<div id="dsq-comment-header-113794670" class="dsq-comment-header">
+					<cite id="dsq-cite-113794670">
+						<a id="dsq-author-user-113794670" href="http://aaronparecki.com" target="_blank" rel="nofollow">aaronpk</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113794670" class="dsq-comment-body">
+					<div id="dsq-comment-message-113794670" class="dsq-comment-message">For those of you who are having trouble getting an XML file from your delicious account (i.e. if you have a newer delicious account created after Yahoo bought it), try the Delicious XML Exporter <a href="http://deliciousxml.com" rel="nofollow">http://deliciousxml.com</a></div>
+				</div>
+			</li>
+			<div id="comment-114078784"></div>
+
+			<li id="dsq-comment-114078784">
+				<div id="dsq-comment-header-114078784" class="dsq-comment-header">
+					<cite id="dsq-cite-114078784">
+						<a id="dsq-author-user-114078784" href="http://twitter.com/Jose_GD" target="_blank" rel="nofollow">José González DAmico</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-114078784" class="dsq-comment-body">
+					<div id="dsq-comment-message-114078784" class="dsq-comment-message">... and if you have an older account, see the comments in <a href="http://deliciousxml.com" rel="nofollow">deliciousxml.com</a>. curl rocks!</div>
+				</div>
+			</li>
+			<div id="comment-113791850"></div>
+
+			<li id="dsq-comment-113791850">
+				<div id="dsq-comment-header-113791850" class="dsq-comment-header">
+					<cite id="dsq-cite-113791850">
+						<a id="dsq-author-user-113791850" href="http://twitter.com/xtraboy" target="_blank" rel="nofollow">Oleg Xtraboy</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113791850" class="dsq-comment-body">
+					<div id="dsq-comment-message-113791850" class="dsq-comment-message">Yes, for migrate from one cemetery to another. Use Chrome and sync your bookmarks on all machines you use - the best way, thinkin&#39; the future. Yahoo - dies slowly.</div>
+				</div>
+			</li>
+			<div id="comment-113796132"></div>
+
+			<li id="dsq-comment-113796132">
+				<div id="dsq-comment-header-113796132" class="dsq-comment-header">
+					<cite id="dsq-cite-113796132">
+						<a id="dsq-author-user-113796132" href="http://angelostavrow.com" target="_blank" rel="nofollow">Angelo</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113796132" class="dsq-comment-body">
+					<div id="dsq-comment-message-113796132" class="dsq-comment-message">And how do you propose we go about sharing our sync&#39;ed bookmarks?  After all, that was the whole point of Delicious.</div>
+				</div>
+			</li>
+			<div id="comment-113798959"></div>
+
+			<li id="dsq-comment-113798959">
+				<div id="dsq-comment-header-113798959" class="dsq-comment-header">
+					<cite id="dsq-cite-113798959">
+						<a id="dsq-author-user-113798959" href="http://twitter.com/jchris" target="_blank" rel="nofollow">J Chris Anderson</a>
+					</cite>
+				</div>
+				<div id="dsq-comment-body-113798959" class="dsq-comment-body">
+					<div id="dsq-comment-message-113798959" class="dsq-comment-message">The CouchDB one inherently supports sharing via CouchDB replication. <a href="http://guide.couchdb.org/draft/replication.html" rel="nofollow">http://guide.couchdb.org/draft...</a></div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script type="text/javascript" charset="utf-8">
+	var disqus_url = 'http://www.readwriteweb.com/cloud/2010/12/host-your-own-delicious-altern.php ';
+	var disqus_container_id = 'disqus_thread';
+	var facebookXdReceiverPath = '/mt434-static/plugins/disqus/xd_receiver.htm';
+</script>
+
+<!-- d tb code was here -->
+
+<script type="text/javascript" charset="utf-8" src="http://disqus.com/scripts/readwritewebdotcom/disqus.js?v=2.0&slug=3_ways_to_host_your_own_delicious_alternative&pname=movabletype&pver=2.0"></script>
+
+
+</div>
+</div>
+</div>
+
+
+
+  <div id="content-column-right">
+<div id="right_column_style">
+
+<h3>Sponsored by</h3>
+
+<p><a target='_blank' href='http://www.vmwareintelalliance.com/?utm_source=readwritecloud&utm_medium=channel_brand_logo&utm_campaign=inpost' onclick="secondTracker._trackEvent('Outbound Logo Placement', 'Click');"><img border='0' alt='' src='http://d.ads.readwriteweb.com/avw.php?zoneid=79423&amp;n=22bddc9' /></a><br /><a href="http://www.vmwareintelalliance.com" onclick="secondTracker._trackEvent('VMware Intel Alliance Learn More Button','Click');"><img src="/mt-static/themes/df/images/cloud/rwcloudlearnmorebutton.png" width="300" height="50" alt="Learn More about the Intel/VMware Alliance" title="Learn more about the Intel/VMware Alliance" /></a></p>
+<div id="vmware-trial">
+<a href="https://www.vmware.com/tryvmware/?p=default" onclick="secondTracker._trackEvent('VMware Trial Download 300x250', 'Click');">Download fully functional trial versions of VMware virtualization solutions.</a>
+</div>
+<div class="tab">
+    <div id="casestudies" class="sidebar-panel">
+<h3>Case Study</h3>
+						
+<a class="title" href="http://www.readwriteweb.com/cloud/case-studies/omnicommediagroup/?utm_source=readwritecloud&utm_medium=casestudies_sidebar&utm_campaign=casestudies&utm_content=17667-OmnicomMediaGroup+Avoids+Data+Center+Crunch+with+Virtualization">OmnicomMediaGroup Avoids Data Center Crunch with Virtualization</a><span class="page-excerpt"><p>The EMEA division of OmnicomMediaGroup found itself faced with a classic challenge: they were running out of space and power in their data center.</p></span>
+							
+						
+
+								
+    <div style="text-align: right; font-weight: bold"><a href="http://www.readwriteweb.com/cloud/case-studies/?utm_source=readwritecloud&utm_medium=casestudies_sidebar&utm_campaign=casestudies&utm_content=Case%20Studies%20Index">More case studies &raquo;</a></div>									
+    </div>
+<div id="whitepapers" class="sidebar-panel">
+<h3>White Paper</h3>
+<a class="title" href="http://www.readwriteweb.com/cloud/white-papers/intel-vmware/?utm_source=readwritecloud&utm_medium=whitepapers_sidebar&utm_campaign=whitepapers&utm_content=20753-Moving+Past+Legacy+Networking+in+a+Virtualized+Data+Center">Moving Past Legacy Networking in a Virtualized Data Center</a><span class="page-excerpt"><p>Advances in Intel Ethernet 10 Gigabit (10GbE) Server Adapters and VMware vSphere 4 allow migration away from legacy Gigabit Ethernet (GbE) networking.  </p>
+
+<p>This is providing some new opportunities for LAN/SAN consolidation and unification. For instance, organizations have found success with the practical first step of converging multiple LAN connections using 10GbE. This transition lowers the number of physical connections required, thus reducing overall complexity and cost, while providing advanced security and traffic segmentation.</p>
+
+<p>This white paper provides network architects and decision makers with guidance for moving from GbE to 10GbE networking in their virtualized data centers.</p></span>
+							
+<div style="text-align: right; font-weight: bold"><a href="http://www.readwriteweb.com/cloud/white-papers/?utm_source=readwritecloud&utm_medium=whitepapers_sidebar&utm_campaign=whitepapers&utm_content=White%20Papers%20Index">More white papers &raquo;</a></div>
+</div>
+</div>
+
+				<div class="clear"><!--comment--></div>
+
+<div id="sidebar-video">
+<h3>Intel and VMware help Indiana University Virtualize Enterprise Applications</h3>
+<iframe title="YouTube video player" width="300" height="199" src="http://www.youtube.com/embed/WdR5T2oSRsM?rel=0" frameborder="0" allowfullscreen></iframe></div>
+<!-- Track clicks in weekly poll -->
+<script type="text/javascript">
+$(function(){
+  $("#weekly-poll a").each(function(){
+    $(this).click(function () {
+      if(secondTracker != undefined){
+        secondTracker._trackEvent('Weekly Poll', 'Link Click', $(this).attr("href"));
+      }
+    });
+  });
+  $(".pds-answer-input input").each(function(){
+    $(this).click(function () {
+      if(secondTracker != undefined){
+        secondTracker._trackEvent('Weekly Poll', 'Radio Button', $(this).attr("id"));
+      }
+    });
+  });
+});
+</script>
+<!-- Begin weekly poll widget via PollDaddy -->
+<div id="weekly_poll"><script type="text/javascript" language="javascript" charset="utf-8" src="http://static.polldaddy.com/w/31257.js"></script><noscript>
+<a href="http://www.polldaddy.com/w.php?p=31257/">Take Our Poll</a><span style="font-size:9px;">(<a href="http://answers.polldaddy.com">answers</a>)</span>
+</noscript></div>
+<div id="twitter-search" style="border: 1px solid #EEE; padding: 5px; margin: 0 0 10px 0; width: 280px">
+<h3 style="padding-left: 5px; font-family: Arial,sans-serif;font-size:14px">Twitter Buzz</h3>
+<ul id="sponsor-tweets">
+    <li><a href="http://twitter.com/IntelXeon" onClick="javascript: secondTracker._trackPageview('/twitter/IntelXeon');">Follow @IntelXeon on Twitter</a></li>
+    <li><a href="http://twitter.com/VMware" onClick="javascript: secondTracker._trackPageview('/twitter/VMware');">Follow @VMware on Twitter</a></li>
+    <li><a href="http://twitter.com/vCloud" onClick="javascript:secondTracker._trackPageview('/twitter/VMware');">Follow @vCloud on Twitter</a></li>
+</ul>
+
+<div style="padding: 0px 5px; font-size: 10px;"><p style="text-align: center">Follow the latest industry discussion here.  Click a topic in the tag cloud to focus on it.</p></div>
+<div class="widget-cloud widget" style="margin-left: -5px; margin-top: 5px; width: 280px; padding:5px; background-color: #EEE">
+<ul>
+<li class="rank-1 widget-list-item"><a href="http://www.readwriteweb.com/cloud/includes/tweetgrid.php?keywords=Intel" target="tweetgrid" class="unselected" onClick="javascript:secondTracker._trackEvent('Twitter Buzz', 'Search', 'Intel');">Intel</a></li>
+<li class="rank-1 widget-list-item"><a href="http://www.readwriteweb.com/cloud/includes/tweetgrid-list.php" target="tweetgrid" class="unselected" onClick="javascript:secondTracker._trackEvent('Twitter Buzz', 'Search', 'VMware');">VMware</a></li>
+<li class="rank-5 widget-list-item"><a href="http://www.readwriteweb.com/cloud/includes/tweetgrid.php?keywords=vSphere" target="tweetgrid" class="unselected" onClick="javascript:secondTracker._trackEvent('Twitter Buzz', 'Search', 'vSphere');">vSphere</a></li>
+<li class="rank-3 widget-list-item"><a href="http://www.readwriteweb.com/cloud/includes/tweetgrid.php?keywords=vCloud" target="tweetgrid" class="unselected" onClick="javascript:secondTracker._trackEvent('Twitter Buzz', 'Search', 'vCloud');">vCloud</a></li>
+<li class="rank-5 widget-list-item"><a href="http://www.readwriteweb.com/cloud/includes/tweetgrid.php?keywords=Xeon" target="tweetgrid" class="unselected" onClick="javascript:secondTracker._trackEvent('Twitter Buzz', 'Search', 'Xeon');">Xeon</a></li>
+<li class="rank-2 widget-list-item"><a href="http://www.readwriteweb.com/cloud/includes/tweetgrid.php?keywords=Virtualization" target="tweetgrid" class="unselected" onClick="javascript: secondTracker._trackEvent('Twitter Buzz', 'Search', 'Virtualization');">Virtualization</a></li>
+<li class="rank-1 widget-list-item"><a href="http://www.readwriteweb.com/cloud/includes/tweetgrid.php?keywords=%22Cloud Computing%22" target="tweetgrid" class="unselected" onClick="javascript:secondTracker._trackEvent('Twitter Buzz', 'Search', 'Cloud Computing');">Cloud Computing</a></li>
+</ul>
+</div>
+<div style="margin-left: -5px;margin-right: -5px">
+<iframe name="tweetgrid" src="http://www.readwriteweb.com/cloud/includes/tweetgrid.php" width="280" height="350" scrolling="no" frameborder="0" style="border: 0"><html>
+<head>
+<link rel="stylesheet" href="http://www.readwriteweb.com/mt-static/themes/df/rww_global.css" type="text/css" /> 
+<script src="http://www.google.com/jsapi"></script> 
+<script type="text/javascript"> 
+  google.load("jquery", "1");
+  google.load("jqueryui", "1");
+</script> 
+</head>
+<body style="background: #EEE;margin:0">
+<script language="javascript">
+	/* widget config */
+	var jtw_divname                = '';  /* unique id of the widget */
+	var jtw_search                 = 'Intel OR VMware OR vSphere OR vCloud OR Xeon OR Virtualization OR "Cloud Computing" -amazon -citrix -ctxs -goog -AMD -Microsoft -shit -fuck';  /* keywords or phrase to send to search.twitter.com and display */
+	var jtw_width                  = '280px';  /* width of widget in px, %, or auto */
+	var jtw_height                 = '350px';  /* height of widget in px, %, or auto */
+	var jtw_scroll                 = 'yes';  /* add scroll bar to widget, 'yes' or 'no' */
+	var jtw_widget_background      = '';  /* background style of whole widget */
+	var jtw_widget_border          = '0pt';  /* border style of whole widget */
+	var jtw_center_widget          = '';  /* center widget horizontally in container if 'yes' */
+	/* tweet styling */
+	var jtw_tweet_textcolor        = '';  /* text color of the tweets */
+	var jtw_tweet_linkcolor        = '#C10D09';  /* link color of the tweets */
+	var jtw_tweet_background       = '';  /* background style of the tweets */
+	var jtw_tweet_newbackground    = '';  /* background style of new tweets */
+	var jtw_tweet_border           = '';  /* border style of the tweets */
+	var jtw_tweet_margin           = '1px 0px';  /* marin in px for each tweet */
+	var jtw_tweet_fontsize         = '10px';  /* fontsize in px or em of each tweet */
+	var jtw_big_img                = '';  /* display big avatar instead of small avatar */
+	var jtw_hide_img               = '';  /* do not display twitter avatar if 'yes' */
+	/* display config */
+	var jtw_pre_html               = '<!-- -->';  /* html code to display at the top of widget */
+	var jtw_post_html              = '';  /* html code to display at the bottom of widget */
+	var jtw_mid_html               = '';  /* html code to display inbetween each tweet */
+	var jtw_widget_style_misc      = '';  /* misc css style for the widget */
+	var jtw_results_style_misc     = '';  /* misc css style for the results */
+	var jtw_tweet_style_misc       = 'padding:0';  /* misc css style for each tweet */
+        var jtw_tweet_lang             = 'en';  /* language of tweets to display (2 letter country code) */
+	var jtw_num_tweets             = '100';  /* number of tweets to display in widget (up to 100) */
+	var jtw_widget_refresh_interval= '10';  /* the frequency (in seconds) to look for new tweets*/
+</script>
+<script src="http://tweetgrid.com/widget/widget.js" type="text/javascript"></script>
+<!-- Google Analytics Code --> 
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<!-- FM GA Tracking Code BEGIN --> 
+<script type="text/javascript"> 
+var secondTracker = _gat._getTracker("UA-10417153-25"); // FM GA account
+secondTracker._setDomainName("none");
+secondTracker._setAllowLinker(true);
+secondTracker._initData();
+</script> 
+<!-- FM GA Tracking Code END --> 
+<!-- Track clicks within widget -->
+<script type="text/javascript">
+$(function(){
+  $("#jtwwidget div div b a").each(function(){
+    $(this).click(function () {
+      if(pageTracker != undefined){
+        pageTracker._trackEvent('Twitter Buzz Outgoing Link', 'Click', $(this).attr("href"));
+      }
+    });
+  });
+});
+</script>
+</body>
+</html></iframe>
+</div>
+</div>
+<div id="recentcomments" class="dsq-widget"><h3 class="dsq-widget-title">Recent Comments</h2><script type="text/javascript" src="http://disqus.com/forums/readwritewebdotcom/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=24&excerpt_length=100"></script></div>
+<div class="widget-cloud widget">
+<h3 class="widget-header"><a href="http://www.readwriteweb.com/cloud/tags.php">POPULAR TAGS</a></h3>
+<div class="widget-content">
+<ul class="widget-list">
+
+<li class="rank-1 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/cloud+computing">cloud computing</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/virtualization">virtualization</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/google">google</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/vmware">vmware</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/cloud">cloud</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/salesforce.com">salesforce.com</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/microsoft">microsoft</a>
+</li>
+
+<li class="rank-3 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/saas">saas</a>
+</li>
+
+<li class="rank-4 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/amazon+web+services">amazon web services</a>
+</li>
+
+<li class="rank-4 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/amazon">amazon</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/rackspace">rackspace</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/vmware+intel">vmware intel</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/oracle">oracle</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/api">api</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/ibm">ibm</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/intel">intel</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/twitter">twitter</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/aws">aws</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/facebook">facebook</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/google+apps">google apps</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/nosql">nosql</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/big+data">big data</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/hadoop">hadoop</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/apple">apple</a>
+</li>
+
+<li class="rank-5 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/data+center">data center</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/database">database</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/security">security</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/databases">databases</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/open+source">open source</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/private+cloud">private cloud</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/windows+azure">windows azure</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/heroku">heroku</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/paas">paas</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/vmware+virtualization">vmware virtualization</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/amazon+s3">amazon s3</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/dreamforce">dreamforce</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/iaas">iaas</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/yahoo">yahoo</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/data+centers">data centers</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/google+app+engine">google app engine</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/google+apps+marketplace">google apps marketplace</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/openstack">openstack</a>
+</li>
+
+<li class="rank-6 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/wikileaks">wikileaks</a>
+</li>
+
+<li class="rank-7 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/amazon+aws">amazon aws</a>
+</li>
+
+<li class="rank-7 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/citrix">citrix</a>
+</li>
+
+<li class="rank-7 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/cloud+security">cloud security</a>
+</li>
+
+<li class="rank-7 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/data">data</a>
+</li>
+
+<li class="rank-7 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/hosting">hosting</a>
+</li>
+
+<li class="rank-7 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/infrastructure">infrastructure</a>
+</li>
+
+<li class="rank-7 widget-list-item">
+<a href="http://www.readwriteweb.com/cloud/tag/weekly+poll">weekly poll</a>
+</li>
+
+</ul>
+</div>
+</div>
+
+
+				
+</div>
+</div>
+
+
+
+
+
+</div>
+
+<p class="hidden"><br class="clear" /></p>
+<!-- Footer -->
+<div id="footer">
+<div id="footer_left">
+<div id="footer_spacer">
+<p><a href="http://www.readwriteweb.com">Home</a> | <a href="/archives/features/">Features</a> | <a href="/trends/">Trends</a> | <a href="/bestof.php">Best of RWW</a> | <a href="/categories.php">Archives</a></p>
+<p><a href="http://www.readwriteweb.com">ReadWriteWeb</a> | <a href="http://r1.fmpub.net/?r=http%3A%2F%2Fwww.readwriteweb.com%2Fstart%2F&k1=MSFT-BZ-SPRK&k2=RRW&k3=RRSTab" title="ReadWriteStart: Resources for enterpreneurs and startups">Startups</a> | <a href="http://www.readwriteweb.com/biz/" title="ReadWriteBiz: Technology tips and resources for small business">Small Business</a> | <a href="http://www.readwriteweb.com/enterprise/" title="ReadWriteEnterprise: Technology news for Enterprise 2.0">Enterprise</a> | <a href="http://r1.fmpub.net/?r=http%3A%2F%2Fwww.readwriteweb.com%2Fcloud%2F&k4=251&k5={banner_id}" title="ReadWriteCloud: All about cloud computing and virtualization">Cloud Computing</a> | <a href="http://r1.fmpub.net/?r=http://www.readwriteweb.com/hack&k4=532&k5=%7Bbanner_id%7D" title="ReadWriteHack: Best practices and resources for developers.">Developers</a></p>
+</div></div>
+<div id="footer_right">
+<p><a href="http://www.readwriteweb.com/about/">About</a> | <a href="http://www.readwriteweb.com/cloud/rss.xml">Subscribe</a> | <a href="http://www.readwriteweb.com/contact/">Contact</a> | <a href="http://www.readwriteweb.com/advertise/">Advertise</a> | <a href="https://advertisers.federatedmedia.net/explore/view/readwrite" rel="nofollow">FM Tech</a></p>
+<p>&copy; 2003-2011 ReadWriteWeb</p>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=readwriteweb"></script>
+<!-- Twitter Tweet Button Async -->
+<script type="text/javascript">
+(function(){var s=document.createElement('SCRIPT');var c=document.getElementsByTagName('script')[0];s.type='text/javascript';s.async=true;s.src='http://platform.twitter.com/widgets.js';c.parentNode.insertBefore(s,c);})();
+</script>
+<script language="javascript" type="text/javascript">
+//<![CDATA[
+var enqsiteid = 'f86784-lb6m645';
+var enqhost = (window.location.protocol == "https:") ? "https://logssl" : "http://log";
+document.writeln('<script language="javascript" src="'+ enqhost +'.enquisite.com/log.js?id='+ enqsiteid +'" type="text/javascript"><\/script>');
+//]]>
+</script>
+</div>
+</div>
+<!-- Default Insight Tag -->
+<script type="text/javascript">
+  var _bizo_data_partner_id = "901";
+</script>
+<script type="text/javascript">
+  var _bizo_p = (("https:" == document.location.protocol) ? "https://sjs." : "http://js.");
+  document.write(unescape("%3Cscript src='" + _bizo_p + "bizographics.com/convert_data.js?partner_id=" + _bizo_data_partner_id + "' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<noscript>
+  <img height="1" width="1" alt="" style="display:none;" src="http://www.bizographics.com/collect/?pid=901&fmt=gif" />
+</noscript>
+<script type="text/javascript">
+  var vglnk_api_key = "021de175e1e571c67cfaeea3c68d72e8";
+  var vglnk_domain = (("https:" == document.location.protocol) ? "https://" : "http://") + "api.viglink.com";
+  document.write(unescape("%3Cscript src='" + vglnk_domain + "/api/vglnk.js?key=" + vglnk_api_key +
+    "' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+  try {
+    vglnk(vglnk_domain, vglnk_api_key);
+  } catch(err) {}
+</script>
+<script id="aptureScript">
+(function (){var a=document.createElement("script");a.defer="true";a.src="http://www.apture.com/js/apture.js?siteToken=H0arRY0";document.getElementsByTagName("head")[0].appendChild(a);})();
+</script>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '57345927025', status: true, cookie: true,
+             xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+<!-- Disqus Comments Asynchronous Loader -->
+<script type="text/javascript">
+var disqus_shortname = 'readwritewebdotcom';
+(function () {
+  var s = document.createElement('script'); s.async = true;
+  s.src = 'http://disqus.com/forums/readwritewebdotcom/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+</MTIf>
+</body>
+</html>
