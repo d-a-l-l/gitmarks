@@ -6,7 +6,7 @@ import sys, os
 import csv
 
 import bottle
-bottle.debug(False)
+bottle.debug(True)
 
 from bottle import route, run, request, response, template
 from gitmark import gitMark
@@ -49,17 +49,17 @@ def create():
 @route("/tags")
 def tags():
     tags = request.GET.getall('tags')
-    if tags is None:
-        tags = os.listdir(settings.TAG_PATH)
-        return template("tagList", tags=tags, error=None)
-    else:
+    if len(tags) > 0:
         bookmarks = None
         for tag in tags:
             if bookmarks is None:
                 bookmarks = getTag(tag)
             else:
                 bookmarks = bookmarks.intersection(getTag(tag))
-    return template("tags", tag=tags, bookmarks=bookmarks, error=None)
+        return template("tags", tag=tags, bookmarks=bookmarks, error=None)
+    else:
+        tags = os.listdir(settings.TAG_PATH)
+        return template("tagList", tags=tags, error=None)
 
 @route("/content/:contentHash")
 def content(contentHash):
